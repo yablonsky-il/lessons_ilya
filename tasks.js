@@ -10,8 +10,8 @@
  const getSum = (obj) => {
    let sum = 0
    for (let key in obj) {
-     if (typeof key === Number) {
-       sum += key
+     if (typeof obj[key] === 'number') {
+       sum += obj[key]
      }
    }
    return sum
@@ -58,16 +58,9 @@ console.log(isEmpty({ x: 23, y: 17, n: true, k: 'string', a: [] }))
  * @returns {Array}
  */
  const pluck = (arr, str) => {
-  let result = []
-  for (let item in arr) {
-    for (let key in item) {
-      if (key === str) {
-        result.push(key)
-      }
-    }
-  }
-  return result
-};
+  return arr.filter(item => item[str]).map(item => item[str]);
+}
+
 console.log(pluck([{ name: 'barney', age: 36 }, { name: 'fred', age: 40 }], 'age'))
 
 /**
