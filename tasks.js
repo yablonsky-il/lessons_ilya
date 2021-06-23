@@ -6,9 +6,18 @@
  * @param {Object}
  * @returns {Number}
  */
-const getSum = (obj) => {
-
-};
+ const obj = { x: 23, y: 17, n: true, k: 'string', a: [] }
+ const getSum = (obj) => {
+   let sum = 0
+   for (let key in obj) {
+     if (typeof key === Number) {
+       sum += key
+     }
+   }
+   return sum
+ };
+ 
+ console.log(getSum(obj))
 
 /**
  * Задача 2
@@ -17,9 +26,11 @@ const getSum = (obj) => {
  * @param {Object}
  * @returns {Boolean}
  */
-const isEmpty = (obj) => {
-
+ const isEmpty = (obj) => {
+  return Object.keys(obj).length === 0 
 };
+
+console.log(isEmpty({ x: 23, y: 17, n: true, k: 'string', a: [] }))
 
 /**
  * Задача 3
@@ -27,15 +38,16 @@ const isEmpty = (obj) => {
  * increase() - увеличивает значение counter на еденицу
  * decrease() - уменьшает значение counter на еденицу
  */
-const obj = {
+ const obj = {
   counter: 0,
-  increase() {
-
+  increase() { 
+    this.counter += 1
   },
   decrease() {
-
+    this.counter -= 1
   },
 };
+
 
 /**
  * Задача 4
@@ -45,9 +57,18 @@ const obj = {
  * @param {Object}
  * @returns {Array}
  */
-const pluck = (obj1) => {
-
+ const pluck = (arr, str) => {
+  let result = []
+  for (let item in arr) {
+    for (let key in item) {
+      if (key === str) {
+        result.push(key)
+      }
+    }
+  }
+  return result
 };
+console.log(pluck([{ name: 'barney', age: 36 }, { name: 'fred', age: 40 }], 'age'))
 
 /**
  * Задача 5
@@ -59,5 +80,20 @@ const pluck = (obj1) => {
  * @returns {Boolean}
  */
 const compare = (obj1, obj2) => {
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
 
+  if (keys1.length !== keys2.length) {
+    return false;
+  }
+
+  for (let key of keys1) {
+    if (obj1[key] !== obj2[key]) {
+      return false;
+    }
+  }
+
+  return true;
 };
+
+console.log(compare({name: 'John'},{name: 'John'}))
