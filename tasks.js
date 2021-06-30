@@ -5,8 +5,40 @@
  * Также класс должен иметь метод getSalary(), который будет выводить зарплату работника.
  * Зарплата - это произведение (умножение) ставки rate на количество отработанных дней days.
  */
-class Employee {
+ class Employee {
+  constructor(name, surname, rate, days) {
+    this.name = name
+    this.surname = surname
+    this.rate = rate
+    this.days = days
+  }
+  getName() {
+    return this.name
+  }
 
+  getSurname() {
+    return this.surname
+  }
+
+  getRate() {
+    return this.rate
+  }
+
+  getDays() {
+    return this.days
+  }
+
+  getSalary() {
+    return this.rate * this.days
+  }
+
+  setRate(value) {
+    this.rate = value
+  }
+
+  setDays(value) {
+    this.days = value
+  }
 }
 
 const employee = new Employee('Иван', 'Иванов', 10, 31);
