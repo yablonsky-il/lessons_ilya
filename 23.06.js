@@ -15,7 +15,7 @@ function sum(getSum) {
   }
 
   return sum;
-
+dad
 
  console.log(sum(getSum));
 
