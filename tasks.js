@@ -11,6 +11,13 @@ const getMessageWithdelay = (message, delay) => {
   // Code here
 };
 
+const getMessageWithdelay = (message, delay) =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => resolve('Good morning, World'), 3000);
+  });
+const promise = getMessageWithdelay();
+promise.then(data => console.log(data));
+
 /**
  * Задача 2
  * Создать функцию getCommentsByPostId, которая принимает число postId.
@@ -26,6 +33,13 @@ const getMessageWithdelay = (message, delay) => {
   // Code here
 };
 
+const getCommentsByPostIdWithThen = (postId) =>
+  fetch('https://jsonplaceholder.typicode.com/comments')
+  .then(res => res.json())
+  .then((data) => data.filter((item) => item.postId === postId))
+  .then(console.log);
+  getCommentsByPostIdWithThen(7)
+
 /**
  * Задача 3
  * С точно такой же логикой изменить реализацию функции getCommentsByPostId на async/await
@@ -35,3 +49,14 @@ const getMessageWithdelay = (message, delay) => {
  const getCommentsByPostIdWithAsync = async (postId) => {
   // Code here
 };
+const arr = [
+  fetch('https://jsonplaceholder.typicode.com/comments')
+];
+
+const getCommentsByPostIdWithThen = async (postId) => {
+  const promises = await Promise.all(arr);
+  const result = await promises[0].json();
+  console.log('result', result);
+  return result;
+}
+  getCommentsByPostIdWithThen(4);
