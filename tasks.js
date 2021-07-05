@@ -7,8 +7,13 @@
  * @param {Number} delay
  * @returns {Promise}
  */
-const getMessageWithdelay = (message, delay) => {
-  // Code here
+
+ const getMessageWithdelay = (message, delay) =>
+ new Promise((resolve, reject) => {
+    setTimeout(() => resolve('Hello'), delay);
+ }); 
+ const promise = getMessageWithdelay(1000)
+ promise.then((data) => console.log(data));
 };
 
 /**
@@ -22,8 +27,15 @@ const getMessageWithdelay = (message, delay) => {
  * @param {Number} postId
  * @returns {Promise}
  */
- const getCommentsByPostIdWithThen = (postId) => {
-  // Code here
+ 
+  const getCommentsByPostIdWithThen = (postId) =>
+  fetch('https://jsonplaceholder.typicode.com/comments')
+  .then(res => res.json())
+  .then((data) => {
+    return data.filter((item) => item.postId === postId);
+  })
+  .then(console.log);
+  getCommentsByPostIdWithThen(10);
 };
 
 /**
@@ -32,6 +44,12 @@ const getMessageWithdelay = (message, delay) => {
  * @param {Number} postId
  * @returns {Promise}
  */
- const getCommentsByPostIdWithAsync = async (postId) => {
-  // Code here
+  const arr = [fetch('https://jsonplaceholder.typicode.com/comments')]; 
+  const getCommentsByPostIdWithThen = async (postId) => {
+    const promises = await Promise.all(arr);
+    const result = await promises[0].json();
+    console.log('result', result);
+    return result;
+  }
+    getCommentsByPostIdWithThen(8);
 };
