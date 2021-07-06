@@ -36,7 +36,7 @@ getMessageWithdelay('hello',2000)
     }))
     .then(console.log)
 };
-getCommentsByPostIdWithThen(1)
+getCommentsByPostIdWithThen(4)
 /**
  * Задача 3
  * С точно такой же логикой изменить реализацию функции getCommentsByPostId на async/await
@@ -52,4 +52,4 @@ getCommentsByPostIdWithThen(1)
   console.log(result)
   console.log(result2)
 }
-getCommentsByPostIdWithAsync(1)
+getCommentsByPostIdWithAsync(3)
