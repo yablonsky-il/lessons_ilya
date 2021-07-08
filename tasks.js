@@ -60,6 +60,14 @@ function str(){
 <input type ="button"  value ="click me" onclick="fun()">
 <h3 id="h3"></h3>
 
-<input type="text"  id="inputText">
-<input type ="button"  value ="click me" onclick="fun()">
-<h3 id="h3"></h3>
+function fun(){
+    const text = document.getElementById("inputText");
+    const h = document.getElementById("h3");
+    let result = "";
+    let casual = "0123456789qwertyuiopasdfghjklzxcvbnm";
+     for  (let i = 0; i < text.value; i++){
+     result += casual.charAt(Math.floor(Math.random() * casual.length));
+     }
+     console.log(result)
+     h.innerText = result;
+    };
