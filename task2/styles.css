@@ -1,0 +1,9 @@
+.p {
+    height: 0px;
+    visibility: hidden;
+}
+
+.p1 {
+    height: auto;
+    visibility: visible;
+}

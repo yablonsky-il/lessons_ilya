@@ -1,0 +1,22 @@
+.container {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.divbig {
+    width: 99%;
+    display: flex;
+
+}
+
+.divsmall {
+    height: 100px;
+    border: 2px solid black;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
