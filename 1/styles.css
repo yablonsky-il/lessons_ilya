@@ -1,0 +1,25 @@
+.invisible {
+    visibility: hidden;
+    height: 0;
+}
+  
+.visible {
+    visibility: visible;
+    height: auto;
+}
+  
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+  
+.tabdiv {
+    display: flex;
+    justify-content: space-around;
+}
+  
+.textblock {
+    background-color: yellow;
+    height: 160px;
+}
